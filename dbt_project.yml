@@ -1,0 +1,12 @@
+name: 'tasman_dbt_package'
+version: '0.0.1'
+
+config-version: 2
+require-dbt-version: [">=1.6.0", "<2.0.0"]
+
+target-path: "target"
+clean-targets: ["target", "dbt_modules", "dbt_packages"]
+log-path: "logs"
+
+models:
+  tasman_dbt_package:
