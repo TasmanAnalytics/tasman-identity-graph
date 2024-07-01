@@ -1,5 +1,6 @@
+with 
 
-create table dbt_package_dev.dbt_anna.events_per_id as (
+events_per_id as (
     
     select 
         event_id, 
@@ -7,7 +8,7 @@ create table dbt_package_dev.dbt_anna.events_per_id as (
         id
         
     from 
-        dbt_package_dev.dbt_anna.identifies_events
+        {{ ref('identifies_events') }}
         
     unpivot (
         id for id_type in (user_id, anonymous_id, email)
@@ -16,9 +17,9 @@ create table dbt_package_dev.dbt_anna.events_per_id as (
     order by 
         event_id
         
-);
+),
 
-create table dbt_package_dev.dbt_anna.base_id_graph as (
+base_id_graph as (
 
     select 
         first.id as id_1, 
@@ -31,10 +32,10 @@ create table dbt_package_dev.dbt_anna.base_id_graph as (
         null as loop_iteration
         
     from 
-        dbt_package_dev.dbt_anna.events_per_id as first
+        events_per_id as first
         
     inner join 
-        dbt_package_dev.dbt_anna.events_per_id as second 
+        events_per_id as second 
         on first.event_id = second.event_id
     
     where 
@@ -43,5 +44,6 @@ create table dbt_package_dev.dbt_anna.base_id_graph as (
     order by 
         first.event_id
 
+)
 
-);
+select * from base_id_graph
