@@ -1,3 +1,9 @@
+{{
+  config(
+    pre_hook = before_begin("{{ loop_connected_component }}")
+    )
+}}
+
 with all_id as (
 
     select 
@@ -6,7 +12,7 @@ with all_id as (
         timestamp, 
         loop_iteration 
     from 
-        dbt_package_dev.dbt_anna.base_id_graph
+        {{ ref('base_table') }}
 
     union all 
     select 
@@ -16,7 +22,7 @@ with all_id as (
         loop_iteration 
 
     from 
-        dbt_package_dev.dbt_anna.base_id_graph
+        {{ ref('base_table') }}
 
 ),
 
@@ -26,7 +32,7 @@ first_seen_at_graph as (
         id_1 as original_id,
         timestamp
     from 
-        dbt_package_dev.dbt_anna.id_graph
+        {{ ref('base_table') }}
 
     union all 
     select 
@@ -34,7 +40,7 @@ first_seen_at_graph as (
         timestamp
 
     from 
-        dbt_package_dev.dbt_anna.id_graph
+        {{ ref('base_table') }}
 
 ),
 
@@ -97,4 +103,4 @@ select
 from 
     profile_mapping
 
-order by profile_id, original_id;
+order by profile_id, original_id
