@@ -11,7 +11,7 @@ events_per_id as (
         {{ ref('identifies_events') }}
         
     unpivot (
-        id for id_type in (user_id, anonymous_id, email)
+        id for id_type in (user_id, anonymous_id, email) -- future work to allow input of any ids into unpivot
         )
         
     order by 

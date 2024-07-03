@@ -1,0 +1,53 @@
+version: 2
+
+models:
+  - name: base_table
+    description: 'A table to manipulate the identifies calls from rudderstack into identity pairs to input into the connected component algorithm. Currently the ids used for the unpivot are defined in this model.'
+    tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - id_1
+            - id_2
+            - timestamp
+            - loop_iteration
+    columns:
+      - name: id_1
+        data_type: string
+        description: 'An identifier from the selected identifier input'
+      - name: id_2
+        data_type: string
+        description: 'An identifier from the selected identifier input'
+      - name: timestamp
+        data_type: timestamp
+        description: 'The time at which this identity pair was seen.'
+      - name: curr_id_1
+        data_type: string
+        description: 'Used to track the resolution of the identity graph for id_1.'
+      - name: curr_id_2
+        data_type: string
+        description: 'Used to track the resolution of the identity graph for id_2.'
+      - name: version_curr_id_1
+        data_type: int
+        description: 'Used to track the number of changes from the original id_1.'
+      - name: version_curr_id_2
+        data_type: int
+        description: 'Used to track the number of changes from the original id_2.'
+      - name: loop_iteration
+        data_type: int
+        description: 'Used to track the number of times that the identity resolution has run.'
+
+  - name: profiles
+    description: 'The output profile table with a list of resolved identities for every identity seen in the data. The pre-hook for this script runs the connected components macro.'
+    columns:
+      - name: original_id
+        data_type: string
+        description: 'The identifer that was seen in the identifies calls data.'
+        tests:
+          - unique
+          - not_null
+
+      - name: profile_id
+        data_type: varchar
+        description: 'Our chosen final identifier that we are using to represent a single user profile in our data.'
+        tests:
+          - not_null
