@@ -13,3 +13,6 @@ log-path: "logs"
 
 vars:
   tasman_dbt_package:
+
+models:
+  +materialized: table
