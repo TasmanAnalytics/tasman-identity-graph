@@ -50,7 +50,7 @@ You can then use this table to join back on your events table and find the way t
     event_id, user_id, anonymous_id, email, event_time
 
 ## Supported Data Warehouses
-This package currently only supports Snowflake.
+This package currently supports Snowflake.
 
 ## Contact
 This package has been written and is maintained by [Tasman Analytics][tasman_contact]
