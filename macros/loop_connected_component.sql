@@ -1,9 +1,6 @@
-{% macro loop_connected_component() %}
-{{ insert_into_connected_components(loop_counter=0) }}
-{{ insert_into_connected_components(loop_counter=1) }}
-{{ insert_into_connected_components(loop_counter=2) }}
-{{ insert_into_connected_components(loop_counter=3) }}
-{{ insert_into_connected_components(loop_counter=4) }}
-{{ insert_into_connected_components(loop_counter=5) }}
-
+{% macro loop_connected_component(max_loop, current=0) %}
+    {% if current <= max_loop %}
+        {{ insert_into_connected_components(loop_counter=current) }},
+        {{ loop_connected_component(max_loop, current + 1) }}
+    {% endif %}
 {% endmacro %}
