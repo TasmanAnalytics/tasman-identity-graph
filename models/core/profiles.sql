@@ -1,6 +1,6 @@
 {{
   config(
-    pre_hook = before_begin("{{ loop_connected_component(max_loop= 5)}}")
+    pre_hook = loop_connected_component(max_loop= 5)
     )
 }}
 
