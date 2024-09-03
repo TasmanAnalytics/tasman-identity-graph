@@ -102,5 +102,3 @@ select
 
 from 
     profile_mapping
-
-order by profile_id, original_id
