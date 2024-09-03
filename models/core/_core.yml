@@ -38,6 +38,9 @@ models:
 
   - name: profiles
     description: 'The output profile table with a list of resolved identities for every identity seen in the data. The pre-hook for this script runs the connected components macro.'
+    tests:
+      - dbt_utils.equality:
+          compare_model: ref('expected_output')
     columns:
       - name: original_id
         data_type: string
