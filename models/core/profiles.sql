@@ -1,6 +1,6 @@
 {{
   config(
-    pre_hook = before_begin("{{ loop_connected_component }}")
+    pre_hook = loop_connected_component(max_loop= 5)
     )
 }}
 
@@ -65,7 +65,7 @@ find_max_loop_iteration as (
         first_seen_at_per_id.first_seen_at,
         all_id.timestamp as original_timestamp, 
         all_id.loop_iteration, 
-        max(all_id.loop_iteration) over (partition by all_id.original_id, all_id.timestamp) AS max_loop_iteration
+        max(all_id.loop_iteration) over (partition by all_id.original_id) as max_loop_iteration
 
     from 
         all_id
@@ -102,5 +102,3 @@ select
 
 from 
     profile_mapping
-
-order by profile_id, original_id

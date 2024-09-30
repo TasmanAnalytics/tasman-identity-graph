@@ -43,13 +43,14 @@ You can then use this table to join back on your events table and find the way t
 
 **Key Features:**
 - 🔥 Uses a conected component algorithm to resolve identities of users
+- ⚙️ Configure the number of times you would like the resolution to run. 
 
 ## Getting Started
-- You need a table of identify call events in the format: 
+- You need a table of identify events in the format: 
     event_id, user_id, anonymous_id, email, event_time
 
 ## Supported Data Warehouses
-This package currently only supports Snowflake.
+This package currently supports Snowflake.
 
 ## Contact
 This package has been written and is maintained by [Tasman Analytics][tasman_contact]

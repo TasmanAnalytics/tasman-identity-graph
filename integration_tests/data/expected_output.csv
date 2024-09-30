@@ -1,0 +1,16 @@
+original_id,profile_id
+anon1,anon1
+user1,anon1
+user1@example.com,anon1
+user25@example.com,anon1
+anon2,anon2
+user2,anon2
+user2@example.com,anon2
+anon4,anon4
+user4,anon4
+user4@example.com,anon4
+anon5,anon5
+anon6,anon5
+user5,anon5
+user5@example.com,anon5
+user6@example.com,anon5
