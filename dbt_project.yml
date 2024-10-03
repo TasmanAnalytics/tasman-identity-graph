@@ -8,5 +8,6 @@ target-path: "target"
 clean-targets: ["target", "dbt_modules", "dbt_packages"]
 log-path: "logs"
 
-models:
-  tasman_dbt_package:
+vars:
+  tasman_identity_graph:
+    identity_events: "{{ ref('identifies_events') }}"
