@@ -1,7 +1,7 @@
 version: 2
 
 models:
-  - name: base_table
+  - name: tasman_identity_base_table
     description: 'A table to manipulate the identifies calls from rudderstack into identity pairs to input into the connected component algorithm. Currently the ids used for the unpivot are defined in this model.'
     tests:
       - dbt_utils.unique_combination_of_columns:
@@ -36,7 +36,7 @@ models:
         data_type: int
         description: 'Used to track the number of times that the identity resolution has run.'
 
-  - name: profiles
+  - name: tasman_identity_profiles
     description: 'The output profile table with a list of resolved identities for every identity seen in the data. The pre-hook for this script runs the connected components macro.'
     tests:
       - dbt_utils.equality:

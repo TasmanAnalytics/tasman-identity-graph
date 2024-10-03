@@ -1,6 +1,6 @@
 {% macro insert_into_connected_components(loop_counter) %}
 {% set query %}
-insert into {{ ref('base_table') }} (
+insert into {{ ref('tasman_identity_base_table') }} (
 select
         id_1,
         id_2,
@@ -48,7 +48,7 @@ select
                 as tmp_id_2
             
         from
-            {{ ref('base_table') }}
+            {{ ref('tasman_identity_base_table') }}
         
         where 
             version_curr_id_1 = {{ loop_counter }}

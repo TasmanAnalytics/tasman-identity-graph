@@ -8,7 +8,7 @@ events_per_id as (
         id
         
     from 
-        {{ ref('identifies_events') }}
+        {{ var('identity_events') }}
         
     unpivot (
         id for id_type in (user_id, anonymous_id, email) -- future work to allow input of any ids into unpivot
