@@ -7,7 +7,7 @@
 # tasman-identity-graph
 Identity resolution (sometimes referred to as 'identity stitching' or 'identity backstitching') is the process by which multiple user identities are unified into a single profile. It is a critical step in the tracking process to ensure accurate measurement of user behaviour across multiple apps or sessions, and the creation of a single customer view.
 
-Rudderstack as a CDP has a paid for feature that does this identity resolution for you, but you can also implement it yourself by utilising identity graphs. We find all the different identifiers that are connected together, these identifiers are called **vertices**, and links between them, called **edges**. In an identity graph, each node/vertex represents a user identifier, and a link/edge exists where two or more identifiers have at some point in time been captured together.
+We find all the different identifiers that are connected together, these identifiers are called **vertices**, and links between them, called **edges**. In an identity graph, each node/vertex represents a user identifier, and a link/edge exists where two or more identifiers have at some point in time been captured together.
 
 Each connected component (set of connected edges and vertices) of the identity graph represents a single user profile, and enables the building of a comprehensive view of each user across multiple sessions and apps.
 
@@ -15,7 +15,7 @@ Identity graphs are constantly evolving, and a user profile may have lots of dif
 
 ## Our Resolution
 
-As an overview, our approach takes a set of rudderstack identify event calls, and creates user profiles using this connected component algorithm. For this approach you need an understanding of SQL and dbt to implement/orchestrate the work.
+As an overview, our approach takes a set of events, and creates user profiles using this connected component algorithm. For this approach you need an understanding of SQL and dbt to implement/orchestrate the work.
 
 You need to select which identifiers you wish to use in this graph, the ones chosen in this example are a backend `user_id`, the `anonymous_id` from the events, and an `email`.  You only need 2 to make this work.
 
