@@ -13,6 +13,7 @@ log-path: "logs"
 
 vars:
   tasman_dbt_package:
+    identity_events: "{{ ref('identifies_events') }}"
 
 models:
   +materialized: table
