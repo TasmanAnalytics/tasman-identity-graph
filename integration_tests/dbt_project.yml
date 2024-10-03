@@ -1,4 +1,4 @@
-name: 'tasman_dbt_package_integration_tests'
+name: 'tasman_identity_graph'
 version: '1.0'
 
 config-version: 2
