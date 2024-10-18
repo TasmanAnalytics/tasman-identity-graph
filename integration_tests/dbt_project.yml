@@ -1,4 +1,4 @@
-name: 'tasman_dbt_package_integration_tests'
+name: 'tasman_identity_graph'
 version: '1.0'
 
 config-version: 2
@@ -13,6 +13,7 @@ log-path: "logs"
 
 vars:
   tasman_dbt_package:
+    identity_events: "{{ ref('identifies_events') }}"
 
 models:
   +materialized: table

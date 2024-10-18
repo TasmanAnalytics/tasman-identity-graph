@@ -12,7 +12,7 @@ with all_id as (
         timestamp, 
         loop_iteration 
     from 
-        {{ ref('base_table') }}
+        {{ ref('tasman_identity_base_table') }}
 
     union all 
     select 
@@ -22,7 +22,7 @@ with all_id as (
         loop_iteration 
 
     from 
-        {{ ref('base_table') }}
+        {{ ref('tasman_identity_base_table') }}
 
 ),
 
@@ -32,7 +32,7 @@ first_seen_at_graph as (
         id_1 as original_id,
         timestamp
     from 
-        {{ ref('base_table') }}
+        {{ ref('tasman_identity_base_table') }}
 
     union all 
     select 
@@ -40,7 +40,7 @@ first_seen_at_graph as (
         timestamp
 
     from 
-        {{ ref('base_table') }}
+        {{ ref('tasman_identity_base_table') }}
 
 ),
 
