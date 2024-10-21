@@ -1,4 +1,4 @@
-name: 'tasman_identity_graph'
+name: 'tasman_identity_graph_integration_tests'
 version: '1.0'
 
 config-version: 2
@@ -12,7 +12,7 @@ clean-targets: ["target", "dbt_modules", "dbt_packages"]
 log-path: "logs"
 
 vars:
-  tasman_dbt_package:
+  tasman_identity_graph:
     identity_events: "{{ ref('identifies_events') }}"
 
 models:
