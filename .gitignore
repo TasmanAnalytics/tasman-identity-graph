@@ -1,7 +1,16 @@
+# IDE and system files
+.vscode/
+.idea/
+.DS_Store
+
+# environments
+.venv
+.env
+.envrc
+
+# dbt
 target/
 dbt_modules/
 dbt_packages/
 logs/
-.venv
-.env
-.DS_Store
+.user.yml

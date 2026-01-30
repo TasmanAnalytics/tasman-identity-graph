@@ -1,12 +1,12 @@
 [tool.poetry]
-name = "tasman-dbt-package-template"
-version = "0.0.1"
-description = "Add an appropriate description for the package"
+name = "tasman-identity-graph"
+version = "1.0.0"
+description = "Using the connected component algorithm to resolve an identity graph."
 authors = ["Tasman"]
 readme = "README.md"
 
 [tool.poetry.dependencies]
-python = "^3.10"
+python = ">=3.10,<3.13"
 isort = "^5.12.0"
 
 [tool.poetry.group.dbt.dependencies]
