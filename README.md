@@ -19,7 +19,7 @@ As an overview, our approach takes a set of events, and creates user profiles us
 
 You need to select which identifiers you wish to use in this graph, the ones chosen in this example are a backend `user_id`, the `anonymous_id` from the events, and an `email`.  You only need 2 to make this work.
 
-The output table will provide you for every id found the `profile_id` for that individual user profile. 
+The output table will provide you for every id found the `profile_id` for that individual user profile.
 
 | ORIGINAL_ID | PROFILE_ID |
 | --- | --- |
@@ -43,10 +43,10 @@ You can then use this table to join back on your events table and find the way t
 
 **Key Features:**
 - 🔥 Uses a conected component algorithm to resolve identities of users
-- ⚙️ Configure the number of times you would like the resolution to run. 
+- ⚙️ Configure the number of times you would like the resolution to run.
 
 ## Getting Started
-- You need a table of identify events in the format: 
+- You need a table of identify events in the format:
     event_id, user_id, anonymous_id, email, event_time
 
 ## Supported Data Warehouses
@@ -58,6 +58,8 @@ This package has been written and is maintained by [Tasman Analytics][tasman_con
 If you find a bug, or for any questions please open an issue on GitHub.
 
 ## Contributing
+
+Install dependencies and pre-commit hooks with `make setup`. Run `make help` to see the other available commands.
 
 ### Integration tests
 
@@ -83,4 +85,4 @@ The links below need updating with the package name for utm_campaign
 [tasman_website_light_mode]: https://tasman.ai?utm_source=github&utm_medium=internal-referral&utm_campaign=tasman-identity-graph#gh-light-mode-only
 [tasman_contact]: https://tasman.ai/contact?utm_source=github&utm_medium=internal-referral&utm_campaign=tasman-identity-graph
 [tasman_wordmark_cream]: https://raw.githubusercontent.com/TasmanAnalytics/.github/master/images/tasman_wordmark_cream_500.png#gh-dark-mode-only
-[tasman_wordmark_black]: https://raw.githubusercontent.com/TasmanAnalytics/.github/master/images/tasman_wordmark_black_500.png#gh-light-mode-only 
+[tasman_wordmark_black]: https://raw.githubusercontent.com/TasmanAnalytics/.github/master/images/tasman_wordmark_black_500.png#gh-light-mode-only
